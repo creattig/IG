@@ -1,0 +1,49 @@
+{
+    "description": "Auto Creat IG",
+    "homepage_url": "https://tamper.com/",
+    "manifest_version": 2,
+    "name": "Auto Creat IG",
+    "icons": {
+        "128": "icon.png"
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Auto Creat IG"
+    },
+    "permissions": [
+        "<all_urls>",
+        "storage",
+        "management",
+        "webRequest",
+        "webRequestBlocking",
+        "webNavigation",
+        "tabs",
+        "proxy",
+        "cookies",
+        "notifications",
+        "*://*/*",
+        "activeTab",
+        "browsingData",
+        "contextMenus",
+        "clipboardWrite",
+        "clipboardRead",
+        "downloads"
+    ],
+    "background": {
+        "scripts": ["js/jquery.js", "js/background.js"]
+    },
+    "content_scripts": [{
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": [
+            "js/jquery.js",
+            "js/background.js",
+            "js/content.js"
+        ],
+        "run_at": "document_end",
+        "all_frames": false
+    }],
+    "version": "2.0",
+	"content_security_policy": "script-src 'self' https://temp-mail.io/en https://*.temp-mail.io/en; object-src 'self'"
+}
